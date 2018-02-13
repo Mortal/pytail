@@ -28,3 +28,15 @@ def any_tail(iterable):
     except StopIteration:
         return False
     return n or any_tail(iterable)
+
+
+@tail
+def fac(n, a=1):
+    '''
+    >>> fac(5)
+    120
+    >>> from math import factorial
+    >>> fac(10000) == factorial(10000)
+    True
+    '''
+    return a if n == 0 else fac(n-1, a*n)
